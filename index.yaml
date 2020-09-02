@@ -1,0 +1,33 @@
+apiVersion: v1
+entries:
+  kubernetic:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-09-02T12:01:56.05653281Z"
+    description: Kubernetic - Supercharge your clusters
+    digest: 8832e03a7e6ae51385ffd2717b37f88935b39f6464bfb9aaffce08a19d76b3a6
+    name: kubernetic
+    urls:
+    - https://github.com/harbur/kubernetic-charts/releases/download/kubernetic-0.1.0/kubernetic-0.1.0.tgz
+    version: 0.1.0
+  kubernetic-backend:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-09-02T12:01:56.1769809Z"
+    description: Kubernetic Backend - Supercharge your clusters
+    digest: 0e0cad90a3f5ef79bffee3ab9e7a27ab2c87ecf713d4d923baf65b2d791880e0
+    name: kubernetic-backend
+    urls:
+    - https://github.com/harbur/kubernetic-charts/releases/download/kubernetic-backend-0.1.0/kubernetic-backend-0.1.0.tgz
+    version: 0.1.0
+  kubernetic-frontend:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-09-02T12:01:56.298516317Z"
+    description: Kubernetic Frontend - Supercharge your clusters
+    digest: 4e03cf428f787b440d3da6191828f42d346a0b3f3f1f10e4f0f4d72b5f5fc729
+    name: kubernetic-frontend
+    urls:
+    - https://github.com/harbur/kubernetic-charts/releases/download/kubernetic-frontend-0.1.0/kubernetic-frontend-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-09-02T12:01:55.858660792Z"
