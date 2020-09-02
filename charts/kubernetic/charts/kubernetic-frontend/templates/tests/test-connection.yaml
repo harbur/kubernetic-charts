@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "kubernetic-frontend.fullname" . }}-test-connection"
+  labels:
+    app.kubernetes.io/name: {{ include "kubernetic-frontend.name" . }}
+    helm.sh/chart: {{ include "kubernetic-frontend.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "kubernetic-frontend.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
