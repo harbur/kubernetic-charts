@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   repository: europe-west1-docker.pkg.dev/woven-computing-234012/public/kubernetic-backend
-  tag: master
-  pullPolicy: Always
+  tag: 3.1.0
+  pullPolicy: IfNotPresent
 
 # The update strategy to apply to the Deployment
 updateStrategy:
@@ -75,6 +75,11 @@ config:
   # In web scenario the Kubernetic settings are stored in the following path
   settings:
     path: /preferences
+
+  storage:
+    backend: secret
+    secretName: "kubernetic-storage"
+    secretNamespace: "kubernetic"
 
 persistence:
   enabled: true
