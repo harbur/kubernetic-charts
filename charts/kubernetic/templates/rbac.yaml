@@ -2,15 +2,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ include "kubernetic-backend.fullname" . }}:{{ .Release.Namespace }}
+  name: {{ include "kubernetic.fullname" . }}:{{ .Release.Namespace }}
   labels:
-{{ include "kubernetic-backend.labels" . | indent 4 }}
+{{ include "kubernetic.labels" . | indent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
 - kind: ServiceAccount
-  name: {{ include "kubernetic-backend.fullname" . }}
+  name: {{ include "kubernetic.fullname" . }}
   namespace: {{ .Release.Namespace }}
 {{- end -}}

@@ -1,33 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kubernetic-backend
+  name: {{ include "kubernetic.name" . }}-backend
   labels:
-{{ include "kubernetic-backend.labels" . | indent 4 }}
+    app.kubernetes.io/component: backend
+{{ include "kubernetic.labels" . | indent 4 }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   strategy:
-{{ toYaml .Values.updateStrategy | indent 4 }}
+{{ toYaml .Values.backend.updateStrategy | indent 4 }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "kubernetic-backend.name" . }}
+      app.kubernetes.io/name: {{ include "kubernetic.name" . }}-backend
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
       labels:
-        app.kubernetes.io/name: {{ include "kubernetic-backend.name" . }}
+        app.kubernetes.io/name: {{ include "kubernetic.name" . }}-backend
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
-    {{- with .Values.imagePullSecrets }}
+    {{- with .Values.backend.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: kubernetic-backend
+          image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+          imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 8080
@@ -41,36 +42,34 @@ spec:
               path: /healthz
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.backend.resources | nindent 12 }}
           volumeMounts:
           - mountPath: /go/config/config.yaml
             name: config
             subPath: config.yaml
           - name: preferences
             mountPath: /preferences
-      {{- with .Values.nodeSelector }}
+      {{- with .Values.backend.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if .Values.rbac.create }}
-      serviceAccountName: {{ include "kubernetic-backend.fullname" . }}
-      {{- end }}
-    {{- with .Values.affinity }}
+      serviceAccountName: {{ template "kubernetic.serviceAccountName" . }}
+    {{- with .Values.backend.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-    {{- with .Values.tolerations }}
+    {{- with .Values.backend.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       volumes:
       - name: config
         secret:
-          secretName: {{ include "kubernetic-backend.fullname" . }}
+          secretName: {{ include "kubernetic.fullname" . }}
       - name: preferences
       {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Values.persistence.existingClaim | default (include "kubernetic-backend.fullname" .) }}
+          claimName: {{ .Values.persistence.existingClaim | default (include "kubernetic.fullname" .) }}
       {{- else }}
         emptyDir: {}
       {{- end -}}

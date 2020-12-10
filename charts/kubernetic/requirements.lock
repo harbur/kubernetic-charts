@@ -1,9 +1,0 @@
-dependencies:
-- name: kubernetic-backend
-  repository: file://../kubernetic-backend
-  version: 0.1.0
-- name: kubernetic-frontend
-  repository: file://../kubernetic-frontend
-  version: 0.1.0
-digest: sha256:3dec809f8af4d3872a0e3935d5c57a7a7e147820382a5f6ae54b1f19e6fa5f16
-generated: "2020-08-24T12:45:57.122464+03:00"

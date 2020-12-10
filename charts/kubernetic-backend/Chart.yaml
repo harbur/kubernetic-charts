@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: 3.1.0
-description: Kubernetic Backend - Supercharge your clusters
-name: kubernetic-backend
-version: 3.1.0

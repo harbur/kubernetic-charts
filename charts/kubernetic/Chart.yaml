@@ -3,10 +3,3 @@ appVersion: 3.1.0
 description: Kubernetic - Supercharge your clusters
 name: kubernetic
 version: 3.1.0
-dependencies:
-    - name: kubernetic-backend
-      repository: file://../kubernetic-backend
-      version: 3.1.0
-    - name: kubernetic-frontend
-      repository: file://../kubernetic-frontend
-      version: 3.1.0
