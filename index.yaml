@@ -3,6 +3,15 @@ entries:
   kubernetic:
   - apiVersion: v1
     appVersion: 3.1.0
+    created: "2020-12-14T15:46:04.447084378Z"
+    description: Kubernetic - Supercharge your clusters
+    digest: 5b8f30bfc213769e371b01b75b178367cdedab837b4a8208fdb1fd7f1e1818e0
+    name: kubernetic
+    urls:
+    - https://github.com/harbur/kubernetic-charts/releases/download/kubernetic-3.1.1/kubernetic-3.1.1.tgz
+    version: 3.1.1
+  - apiVersion: v1
+    appVersion: 3.1.0
     created: "2020-12-10T15:19:30.832802193Z"
     description: Kubernetic - Supercharge your clusters
     digest: 53658f09b17d3562272459184fa4a4d9b6e8a70d1cb3aec3069c54bbb69a31e4
