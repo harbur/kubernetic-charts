@@ -1,7 +1,7 @@
 backend:
   image:
     repository: europe-west1-docker.pkg.dev/woven-computing-234012/public/kubernetic-backend
-    tag: 3.1.0
+    tag: 3.1.1
     pullPolicy: IfNotPresent
 
   # The update strategy to apply to the Deployment
@@ -91,9 +91,6 @@ config:
 
   in-cluster:
     enabled: true
-
-  token:
-    enabled: false
 
   server:
     addr: 0.0.0.0:8080

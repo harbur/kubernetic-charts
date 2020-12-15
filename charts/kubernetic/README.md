@@ -180,12 +180,14 @@ We provide below an example how to setup SSO using Pomerium on top of Kubernetic
 
 ### Configuration
 
-| Parameter                 | Description                                                        | Default        |
-|---------------------------|--------------------------------------------------------------------|----------------|
-| config.log.level          | Log level (one of `info`, `debug`)                                 | `info`         |
-| config.in-cluster.enabled | Flag to enable in-cluster kubernetes access through ServiceAccount | `true`         |
-| config.token.enabled      | Flag to enable token authentication                                | `false`        |
-| config.server.addr        | Listen to address                                                  | `0.0.0.0:8080` |
+| Parameter                    | Description                                                                                                               | Default        |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------------|
+| config.log.level             | Log level (one of `info`, `debug`)                                                                                        | `info`         |
+| config.in-cluster.enabled    | Flag to enable in-cluster kubernetes access through ServiceAccount                                                        | `true`         |
+| config.auth.type             | authentication method (one of "token", "pomerium", "gke")                                                                 | Not Set        |
+| config.auth.token.password   | password will be used for authentication of requests (used when `auth.type: token`)                                       | Not Set        |
+| config.auth.pomerium.jwksURI | The attestation JWT's signature can be verified using the public key from this endpoint (used when `auth.type: pomerium`) | Not Set        |
+| config.server.addr           | Listen to address                                                                                                         | `0.0.0.0:8080` |
 
 ### RBAC
 
