@@ -2,4 +2,4 @@ apiVersion: v1
 appVersion: 3.1.0
 description: Kubernetic - Supercharge your clusters
 name: kubernetic
-version: 3.1.2
+version: 3.1.3

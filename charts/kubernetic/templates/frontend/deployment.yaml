@@ -5,6 +5,13 @@ metadata:
   labels:
     app.kubernetes.io/component: frontend
 {{ include "kubernetic.labels" . | indent 4 }}
+{{- with .Values.frontend.labels }}
+{{ toYaml . | indent 4 }}
+{{- end }}
+{{- with .Values.frontend.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
 spec:
   replicas: 1
   selector:
@@ -13,9 +20,16 @@ spec:
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
+{{- with .Values.frontend.podAnnotations }}
+      annotations:
+{{ toYaml . | indent 8 }}
+{{- end }}
       labels:
         app.kubernetes.io/name: {{ include "kubernetic.name" . }}-frontend
         app.kubernetes.io/instance: {{ .Release.Name }}
+{{- with .Values.frontend.podLabels }}
+{{ toYaml . | indent 8 }}
+{{- end }}
     spec:
     {{- with .Values.frontend.imagePullSecrets }}
       imagePullSecrets:

@@ -28,10 +28,21 @@ backend:
   tolerations: []
   affinity: {}
 
+  ## Backend deployment labels & annotations
+  # annotations: {}
+  # labels: {}
+
+  ## Backend pod labels & annotations
+  # podAnnotations: {}
+  # podLabels: {}
+
+
   ## Backend service configuration
   service:
     type: ClusterIP
     port: 80
+    annotations: {}
+    labels: {}
 
 frontend:
   image:
@@ -57,10 +68,20 @@ frontend:
   tolerations: []
   affinity: {}
 
+  ## Frontend deployment labels & annotations
+  # annotations: {}
+  # labels: {}
+
+  ## Frontend pod labels & annotations
+  # podAnnotations: {}
+  # podLabels: {}
+
   ## Frontend service configuration
   service:
     type: ClusterIP
     port: 80
+    annotations: {}
+    labels: {}
 
 persistence:
   enabled: true

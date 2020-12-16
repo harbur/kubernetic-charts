@@ -4,6 +4,13 @@ metadata:
   name: {{ include "kubernetic.name" . }}-backend
   labels:
 {{ include "kubernetic.labels" . | indent 4 }}
+{{- with .Values.backend.service.labels }}
+{{ toYaml . | indent 4 }}
+{{- end }}
+{{- with .Values.backend.service.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
 spec:
   type: {{ .Values.backend.service.type }}
   ports:

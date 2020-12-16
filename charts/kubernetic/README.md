@@ -138,34 +138,46 @@ We provide below an example how to setup SSO using Pomerium on top of Kubernetic
 
 ### Backend
 
-| Parameter                | Description                                        | Default                                                                        |
-|--------------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
-| backend.image.repository | Backend image repository                           | `europe-west1-docker.pkg.dev/woven-computing-234012/public/kubernetic-backend` |
-| backend.image.tag        | Backend image tag                                  | `3.1.0`                                                                        |
-| backend.image.pullPolicy | Backend image pull policy                          | `IfNotPresent`                                                                 |
-| backend.updateStrategy   | TBD                                                |                                                                                |
-| backend.imagePullSecrets | Backend image pull secrets                         | `[]`                                                                           |
-| backend.resources        | Backend resources allocation (Requests and Limits) | `{}`                                                                           |
-| backend.nodeSelector     | Backend node labels for pod assignment             | `{}`                                                                           |
-| backend.tolerations      | Backend toleration labels for pod assignment       | `[]`                                                                           |
-| backend.affinity         | Backend affinity settings                          | `{}`                                                                           |
-| backend.service.type     | Backend service type                               | `ClusterIP`                                                                    |
-| backend.service.port     | Backend service port                               | `80`                                                                           |
+| Parameter                   | Description                                        | Default                                                                        |
+|-----------------------------|----------------------------------------------------|--------------------------------------------------------------------------------|
+| backend.image.repository    | Backend image repository                           | `europe-west1-docker.pkg.dev/woven-computing-234012/public/kubernetic-backend` |
+| backend.image.tag           | Backend image tag                                  | `3.1.0`                                                                        |
+| backend.image.pullPolicy    | Backend image pull policy                          | `IfNotPresent`                                                                 |
+| backend.updateStrategy      | TBD                                                |                                                                                |
+| backend.imagePullSecrets    | Backend image pull secrets                         | `[]`                                                                           |
+| backend.resources           | Backend resources allocation (Requests and Limits) | `{}`                                                                           |
+| backend.nodeSelector        | Backend node labels for pod assignment             | `{}`                                                                           |
+| backend.tolerations         | Backend toleration labels for pod assignment       | `[]`                                                                           |
+| backend.affinity            | Backend affinity settings                          | `{}`                                                                           |
+| backend.annotations         | Backend deployment annotations                     | Not Set                                                                        |
+| backend.labels              | Backend deployment labels                          | Not Set                                                                        |
+| backend.podAnnotations      | Backend pod annotations                            | Not Set                                                                        |
+| backend.podLabels           | Backend pod labels                                 | Not Set                                                                        |
+| backend.service.type        | Backend service type                               | `ClusterIP`                                                                    |
+| backend.service.port        | Backend service port                               | `80`                                                                           |
+| backend.service.annotations | Backend service annotations                        | Not Set                                                                        |
+| backend.service.labels      | Backend service labels                             | Not Set                                                                        |
 
 ### Frontend
 
-| Parameter                 | Description                                         | Default                                                                         |
-|---------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------|
-| frontend.image.repository | Frontend image repository                           | `europe-west1-docker.pkg.dev/woven-computing-234012/public/kubernetic-frontend` |
-| frontend.image.tag        | Frontend image tag                                  | `3.1.0`                                                                         |
-| frontend.image.pullPolicy | Frontend image pull policy                          | `IfNotPresent`                                                                  |
-| frontend.imagePullSecrets | Frontend image pull secrets                         | `[]`                                                                            |
-| frontend.resources        | Frontend resources allocation (Requests and Limits) | `{}`                                                                            |
-| frontend.nodeSelector     | Frontend node labels for pod assignment             | `{}`                                                                            |
-| frontend.tolerations      | Frontend toleration labels for pod assignment       | `[]`                                                                            |
-| frontend.affinity         | Frontend affinity settings                          | `{}`                                                                            |
-| frontend.service.type     | Frontend service type                               | `ClusterIP`                                                                     |
-| frontend.service.port     | Frontend service port                               | `80`                                                                            |
+| Parameter                    | Description                                         | Default                                                                         |
+|------------------------------|-----------------------------------------------------|---------------------------------------------------------------------------------|
+| frontend.image.repository    | Frontend image repository                           | `europe-west1-docker.pkg.dev/woven-computing-234012/public/kubernetic-frontend` |
+| frontend.image.tag           | Frontend image tag                                  | `3.1.0`                                                                         |
+| frontend.image.pullPolicy    | Frontend image pull policy                          | `IfNotPresent`                                                                  |
+| frontend.imagePullSecrets    | Frontend image pull secrets                         | `[]`                                                                            |
+| frontend.resources           | Frontend resources allocation (Requests and Limits) | `{}`                                                                            |
+| frontend.nodeSelector        | Frontend node labels for pod assignment             | `{}`                                                                            |
+| frontend.tolerations         | Frontend toleration labels for pod assignment       | `[]`                                                                            |
+| frontend.affinity            | Frontend affinity settings                          | `{}`                                                                            |
+| frontend.annotations         | Frontend deployment annotations                     | Not Set                                                                         |
+| frontend.labels              | Frontend deployment labels                          | Not Set                                                                         |
+| frontend.podAnnotations      | Frontend pod annotations                            | Not Set                                                                         |
+| frontend.podLabels           | Frontend pod labels                                 | Not Set                                                                         |
+| frontend.service.type        | Frontend service type                               | `ClusterIP`                                                                     |
+| frontend.service.port        | Frontend service port                               | `80`                                                                            |
+| frontend.service.annotations | Frontend service annotations                        | Not Set                                                                         |
+| frontend.service.labels      | Frontend service labels                             | Not Set                                                                         |
 
 ### Persistence
 

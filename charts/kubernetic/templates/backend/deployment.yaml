@@ -5,6 +5,13 @@ metadata:
   labels:
     app.kubernetes.io/component: backend
 {{ include "kubernetic.labels" . | indent 4 }}
+{{- with .Values.backend.labels }}
+{{ toYaml . | indent 4 }}
+{{- end }}
+{{- with .Values.backend.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
 spec:
   replicas: 1
   strategy:
@@ -17,9 +24,15 @@ spec:
     metadata:
       annotations:
         checksum/config: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+{{- with .Values.backend.podAnnotations }}
+{{ toYaml . | indent 8 }}
+{{- end }}
       labels:
         app.kubernetes.io/name: {{ include "kubernetic.name" . }}-backend
         app.kubernetes.io/instance: {{ .Release.Name }}
+{{- with .Values.backend.podLabels }}
+{{ toYaml . | indent 8 }}
+{{- end }}
     spec:
     {{- with .Values.backend.imagePullSecrets }}
       imagePullSecrets:
