@@ -2,7 +2,7 @@
 
 The repository contains the helm charts provided to deploy Kubernetic in-cluster.
 
-## Usage
+### Usage
 
 [Helm] must be installed to use the charts. Please refer to Helm's [documentation] to get started.
 
