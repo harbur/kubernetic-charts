@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   kubernetic:
   - apiVersion: v1
+    appVersion: 4.4.0
+    created: "2022-08-26T14:09:16.614065532Z"
+    description: Kubernetic - Supercharge your clusters
+    digest: 80c3a1e9c27e9ede60624484e3ca8b37d248eecd015e675a2faf253737aa63fe
+    name: kubernetic
+    urls:
+    - https://github.com/harbur/kubernetic-charts/releases/download/kubernetic-4.4.0/kubernetic-4.4.0.tgz
+    version: 4.4.0
+  - apiVersion: v1
     appVersion: 4.1.0
     created: "2022-08-25T09:57:53.353984172Z"
     description: Kubernetic - Supercharge your clusters
@@ -111,4 +120,4 @@ entries:
     urls:
     - https://github.com/harbur/kubernetic-charts/releases/download/kubernetic-frontend-0.1.0/kubernetic-frontend-0.1.0.tgz
     version: 0.1.0
-generated: "2022-08-25T09:57:53.354203175Z"
+generated: "2022-08-26T14:09:16.614115434Z"
