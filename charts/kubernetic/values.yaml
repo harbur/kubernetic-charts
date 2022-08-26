@@ -1,7 +1,7 @@
 backend:
   image:
     repository: ghcr.io/harbur/kubernetic-backend
-    tag: 4.1.2
+    tag: 4.4.0
     pullPolicy: IfNotPresent
 
   # The update strategy to apply to the Deployment
@@ -47,7 +47,7 @@ backend:
 frontend:
   image:
     repository: ghcr.io/harbur/kubernetic-frontend
-    tag: 4.1.3
+    tag: 4.4.0
     pullPolicy: IfNotPresent
 
   imagePullSecrets: []
@@ -122,13 +122,12 @@ config:
 
 ingress:
   enabled: false
+  # ingressClassName: 
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: chart-example.local
-      paths: []
-
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
